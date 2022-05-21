@@ -80,7 +80,7 @@ const TweetBox = ({ setTweets }: Props) => {
             className="h-24 w-full text-xl outline-none placeholder:text-xl"
           />
           <div className="flex items-center">
-            <div className="flex flex-1 space-x-2 text-twitter">
+            <div className="flex flex-1 space-x-2 text-accent">
               {/* icons */}
               <PhotographIcon
                 onClick={() => setImageUrlBoxIsOpen(!imageUrlBoxIsOpen)}
@@ -94,16 +94,16 @@ const TweetBox = ({ setTweets }: Props) => {
             <button
               onClick={handleSubmit}
               disabled={!input}
-              className="rounded-full bg-twitter px-5 py-2 font-bold text-white transition-opacity duration-200 ease-in-out disabled:opacity-40"
+              className="rounded-full bg-accent px-5 py-2 font-bold text-white transition-opacity duration-200 ease-in-out disabled:opacity-40"
             >
               Make Tweet
             </button>
           </div>
           {imageUrlBoxIsOpen && (
-            <form className="mt-5 flex rounded-lg bg-twitter/80 py-2 px-4">
+            <form className="mt-5 flex rounded-lg bg-accent/70 py-2 px-4">
               <input
                 ref={imageInputRef}
-                className="flex-1 bg-transparent p-2 text-white  outline-none placeholder:text-white"
+                className="flex-1 !bg-transparent p-2 text-white  outline-none placeholder:text-white"
                 type="text"
                 placeholder="Enter Image URL"
               />

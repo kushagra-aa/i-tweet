@@ -15,7 +15,6 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
   const [tweets, setTweets] = useState<Tweet[]>(tweetsProp)
   const [userReload, setUserReload] = useState(false)
   const { data: session } = useSession()
-  console.log('tweets', tweets)
 
   const handleRefresh = async () => {
     if (userReload) return
@@ -35,7 +34,7 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
         <h1 className="p-5 pb-0 text-xl font-bold">Home</h1>
         <RefreshIcon
           onClick={handleRefresh}
-          className="mr-5 mt-5 h-8 w-8 cursor-pointer text-twitter transition-all duration-500 ease-out hover:rotate-180 active:scale-125"
+          className="mr-5 mt-5 h-8 w-8 cursor-pointer text-accent transition-all duration-500 ease-out hover:rotate-180 active:scale-125"
         />
       </div>
       {/* TweetBox */}
@@ -46,7 +45,7 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
       ) : (
         <p className="text-bold my-5 text-center text-lg capitalize text-gray-600">
           <span
-            className="cursor-pointer text-twitter underline"
+            className="text-twitter cursor-pointer underline"
             onClick={() => signIn()}
           >
             sign in

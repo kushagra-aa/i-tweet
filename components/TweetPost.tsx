@@ -90,36 +90,36 @@ const TweetPost = ({ tweet }: Props) => {
           onClick={() => {
             setCommentBoxVisible(!commentBoxVisible)
           }}
-          className="flex cursor-pointer items-center space-x-3 text-gray-400"
+          className="post-icon"
         >
           <ChatAlt2Icon className="h-5 w-5" />
           <p>{comments.length}</p>
         </div>
-        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
+        <div className="post-icon">
           <SwitchHorizontalIcon className="h-5 w-5" />
         </div>
-        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
+        <div className="post-icon">
           <HeartIcon className="h-5 w-5" />
         </div>
-        <div className="flex cursor-pointer items-center space-x-3 text-gray-400">
+        <div className="post-icon">
           <UploadIcon className="h-5 w-5" />
         </div>
       </div>
       {commentBoxVisible && session && (
-        <form onSubmit={handleSubmit} className="mt-3  flex space-x-3">
+        <form onSubmit={handleSubmit} className="mt-3 flex space-x-3">
           <input
             value={input}
             onChange={(e) => {
               setInput(e.target.value)
             }}
-            className="outine-none flex-1 rounded-lg bg-gray-100 p-2"
+            className="flex-1 rounded-lg bg-gray-100 p-2 outline-none"
             type="text"
             placeholder="Share your Comment"
           />
           <button
             disabled={!input}
             type="submit"
-            className="text-twitter disabled:text-gray-200"
+            className="rounded-md bg-dark/80 px-3 text-accent disabled:bg-transparent disabled:text-gray-400"
           >
             Comment
           </button>
@@ -129,7 +129,7 @@ const TweetPost = ({ tweet }: Props) => {
         <div className="mmt-5 my-2 max-h-44 space-y-5 overflow-scroll border-t border-gray-100 p-5 scrollbar-hide">
           {comments.map((comment) => (
             <div className="relative flex space-x-2" key={comment._id}>
-              <hr className="absolute left-5 top-10 h-8 border-x border-twitter/30" />
+              <hr className="absolute left-5 top-10 h-8 border-x border-accent/30" />
               <img
                 src={comment.profileImg}
                 alt=""

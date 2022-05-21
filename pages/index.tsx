@@ -6,14 +6,16 @@ import SideBar from '../components/SideBar'
 import { getTweets } from '../utils/fetchTweets'
 import { Tweet } from '../typings'
 import { Toaster } from 'react-hot-toast'
+import { useEffect, useState } from 'react'
 
 interface Props {
   tweets: Tweet[]
 }
 
 const Home = ({ tweets }: Props) => {
+  const [isDark, setIsDark] = useState<boolean>(true)
   return (
-    <>
+    <div className={`min-w-screen z-0 ${isDark && 'dark'}`}>
       <Head>
         <title>I Tweet</title>
         <link rel="icon" href="/favicon.ico" />
@@ -21,15 +23,15 @@ const Home = ({ tweets }: Props) => {
 
       <Toaster />
 
-      <main className="mx-auto grid max-h-screen grid-cols-9 overflow-hidden lg:max-w-6xl">
+      <main className="z-10 mx-auto grid max-h-screen grid-cols-9 overflow-hidden lg:max-w-6xl">
         {/* SideBar */}
-        <SideBar />
+        <SideBar setIsDark={setIsDark} isDark={isDark} />
         {/* Feed */}
         <Feed tweets={tweets} />
         {/* Widgets */}
-        <Widgets />
+        <Widgets isDark={isDark} />
       </main>
-    </>
+    </div>
   )
 }
 
