@@ -1,23 +1,69 @@
-# Next.js + Tailwind CSS Example
+# I Tweet
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<img src="./assets/logo.png" width="15%" alt="logo"/>
 
-## Deploy your own
+I Tweet is a Twitter Clone.
+It has Twitter Login, comments, retweet and dark mode.
+It is made with NextJS, TypeScript, Sanity and TailwindCSS.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+Built with 🤍 For You!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+Hosted On netlify
 
-## How to use
+[Visit Here](https://i-tweet-k.netlify.app/)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Screenshots
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
-```
+- Twitter Authentication
+- Twitter Timeline Embed
+- Tweet Post
+- Dark Mode
+- Twitter Search
+- Retweet
+- Comments
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Screenshots
+
+<img src="https://user-images.githubusercontent.com/68841296/169661642-5d3e4d06-478d-4568-b73e-3167d7b8cb91.png" width="75%" />
+
+<img src="https://user-images.githubusercontent.com/68841296/169661634-b78ef0f3-9e1e-4c96-916e-cd2f45cb53f8.png" width="70%" />
+
+<img src="https://user-images.githubusercontent.com/68841296/169661675-548b7198-09ba-48a1-89d7-5eaac981fe5e.png" width="35%" />
+
+## Made using
+
+- [HTML](https://www.w3schools.com/html/)
+- [CSS](https://www.w3schools.com/css/default.asp)
+- [JavaScript](https://www.w3schools.com/js/default.asp)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ReactJs](https://reactjs.org/)
+- [NextJs](https://nextjs.org/)
+- [NodeJs](https://nodejs.org/en/)
+- [Sanity](https://sanity.io/)
+- [Groq](https://www.sanity.io/docs/groq)
+
+### Tools
+
+- [Adobe Illustrator](https://www.adobe.com/in/products/illustrator.html?gclid=CjwKCAjwrfCRBhAXEiwAnkmKmW22TvR_yR5HsJU6LKlqymL7bsf2_JZPurewrpYvRR9I2H412N4x0hoCsd0QAvD_BwE&sdid=SBNHMR64&mv=search&ef_id=CjwKCAjwrfCRBhAXEiwAnkmKmW22TvR_yR5HsJU6LKlqymL7bsf2_JZPurewrpYvRR9I2H412N4x0hoCsd0QAvD_BwE:G:s&s_kwcid=AL!3085!3!248235017693!e!!g!!adobe%20illustrator!221172068!17525759228)
+- [Figma](https://www.figma.com/)
+- [VS Code](https://code.visualstudio.com/)
+- [Windows Terminal](https://github.com/microsoft/terminal)
+
+### Some Websites Used
+
+- [Favicon.io](https://favicon.io/)
+
+## Concepts Used
+
+- Next Auth
+- Twitter Authentication
+- React Props
+- React States
+- React UseEffects
+- React Components
+- Javascript Objects
+- CSS Animations
+- Responsive CSS
+- Sanity Querries
+- Sanity Post
