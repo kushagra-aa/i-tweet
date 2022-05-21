@@ -120,8 +120,11 @@ const TweetBox = ({ setTweets, input, image, setInput, setImage }: Props) => {
           )}
           {image && (
             <img
+              onClick={() => {
+                setImage('')
+              }}
               src={image}
-              className="mt-10 h-40 w-full rounded-xl object-contain shadow-lg"
+              className="mt-10 h-40 w-full cursor-grab rounded-xl object-contain shadow-lg"
               alt=""
             />
           )}
