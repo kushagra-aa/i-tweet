@@ -4,8 +4,8 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { Tweet } from '../typings'
 import { getTweets } from '../utils/fetchTweets'
-import TweetBox from './TweetBox'
-import TweetPost from './TweetPost'
+import TweetBox from './Tweet/TweetBox'
+import TweetPost from './Tweet/TweetPost'
 
 interface Props {
   tweets: Tweet[]
@@ -14,6 +14,8 @@ interface Props {
 const Feed = ({ tweets: tweetsProp }: Props) => {
   const [tweets, setTweets] = useState<Tweet[]>(tweetsProp)
   const [userReload, setUserReload] = useState(false)
+  const [input, setInput] = useState<string>('')
+  const [image, setImage] = useState<string>('')
   const { data: session } = useSession()
 
   const handleRefresh = async () => {
@@ -28,6 +30,11 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
     setUserReload(false)
   }
 
+  const retweet = (tweet: any) => {
+    setInput(`Retweeted from ${tweet.username} ${tweet.text}`)
+    setImage(tweet.image)
+  }
+
   return (
     <div className="col-span-7 max-h-screen overflow-scroll border-x scrollbar-hide md:col-span-5">
       <div className="flex items-center justify-between">
@@ -40,7 +47,13 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
       {/* TweetBox */}
       {session ? (
         <div className="">
-          <TweetBox setTweets={setTweets} />
+          <TweetBox
+            input={input}
+            setInput={setInput}
+            image={image}
+            setImage={setImage}
+            setTweets={setTweets}
+          />
         </div>
       ) : (
         <p className="text-bold my-5 text-center text-lg capitalize text-gray-600">
@@ -55,7 +68,7 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
       )}
       {/* tweet posts */}
       {tweets.map((tweet) => (
-        <TweetPost key={tweet._id} tweet={tweet} />
+        <TweetPost key={tweet._id} retweet={retweet} tweet={tweet} />
       ))}
     </div>
   )

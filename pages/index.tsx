@@ -1,12 +1,12 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Feed from '../components/Feed'
 import Widgets from '../components/Widgets'
-import SideBar from '../components/SideBar'
+import SideBar from '../components/SideBar/SideBar'
 import { getTweets } from '../utils/fetchTweets'
 import { Tweet } from '../typings'
 import { Toaster } from 'react-hot-toast'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 interface Props {
   tweets: Tweet[]

@@ -1,4 +1,4 @@
-import { Comment, CommentBody, Tweet } from '../typings'
+import { Comment, CommentBody, Tweet } from './../../typings'
 import TimeAgo from 'react-timeago'
 import {
   ChatAlt2Icon,
@@ -6,15 +6,16 @@ import {
   SwitchHorizontalIcon,
   UploadIcon,
 } from '@heroicons/react/outline'
-import { fetchComments } from '../utils/fetchComments'
+import { fetchComments } from './../../utils/fetchComments'
 import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import toast from 'react-hot-toast'
 
 interface Props {
   tweet: Tweet
+  retweet: any
 }
-const TweetPost = ({ tweet }: Props) => {
+const TweetPost = ({ tweet, retweet }: Props) => {
   const [comments, setComments] = useState<Comment[]>([])
   const [commentBoxVisible, setCommentBoxVisible] = useState<boolean>(false)
   const [input, setInput] = useState<string>('')
@@ -66,7 +67,7 @@ const TweetPost = ({ tweet }: Props) => {
         />
         <div className="">
           <div className="flex items-center space-x-1">
-            <p className="mr-1 font-bold">{tweet.username}</p>
+            <p className="mr-1 font-bold capitalize">{tweet.username}</p>
             <p className="hidden text-sm text-gray-500 sm:inline">
               @{tweet.username?.replace(/\s+/g, '').toLocaleLowerCase()} ·
             </p>
@@ -95,7 +96,12 @@ const TweetPost = ({ tweet }: Props) => {
           <ChatAlt2Icon className="h-5 w-5" />
           <p>{comments.length}</p>
         </div>
-        <div className="post-icon">
+        <div
+          className="post-icon"
+          onClick={() => {
+            retweet(tweet)
+          }}
+        >
           <SwitchHorizontalIcon className="h-5 w-5" />
         </div>
         <div className="post-icon">
@@ -105,6 +111,7 @@ const TweetPost = ({ tweet }: Props) => {
           <UploadIcon className="h-5 w-5" />
         </div>
       </div>
+      {/* comment input box */}
       {commentBoxVisible && session && (
         <form onSubmit={handleSubmit} className="mt-3 flex space-x-3">
           <input
@@ -125,6 +132,7 @@ const TweetPost = ({ tweet }: Props) => {
           </button>
         </form>
       )}
+      {/* commsnts box */}
       {comments?.length > 0 && (
         <div className="mmt-5 my-2 max-h-44 space-y-5 overflow-scroll border-t border-gray-100 p-5 scrollbar-hide">
           {comments.map((comment) => (

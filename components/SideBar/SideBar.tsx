@@ -11,7 +11,7 @@ import {
   SunIcon,
 } from '@heroicons/react/outline'
 import SideBarRow from './SideBarRow'
-import Logo from './../assets/logo.png'
+import Logo from './../../assets/logo.png'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { Dispatch, SetStateAction } from 'react'
 

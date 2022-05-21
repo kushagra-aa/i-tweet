@@ -8,19 +8,21 @@ import {
 import { useSession } from 'next-auth/react'
 import { Dispatch, SetStateAction, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
-import { Tweet, TweetBody } from '../typings'
-import { getTweets } from '../utils/fetchTweets'
+import { Tweet, TweetBody } from '../../typings'
+import { getTweets } from '../../utils/fetchTweets'
 
 interface Props {
   setTweets: Dispatch<SetStateAction<Tweet[]>>
+  input: any
+  image: any
+  setInput: any
+  setImage: any
 }
 
-const TweetBox = ({ setTweets }: Props) => {
-  const [input, setInput] = useState<string>('')
+const TweetBox = ({ setTweets, input, image, setInput, setImage }: Props) => {
   const { data: session } = useSession()
   const imageInputRef = useRef<HTMLInputElement>(null)
   const [imageUrlBoxIsOpen, setImageUrlBoxIsOpen] = useState<boolean>(false)
-  const [image, setImage] = useState<string>('')
 
   const addImageToTweet = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
