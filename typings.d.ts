@@ -7,9 +7,28 @@ export interface Tweet extends TweetBody {
     blockTweet: boolean
 }
 
-export type TweetBody = {
+type TweetBody = {
     text: string
     username: string
     profileImg: string
     image?: string
+}
+
+type CommentBody = {
+    comment: string
+    tweetId: string
+    username: string
+    profileImg: string
+}
+
+export interface Comment extends CommentBody {
+    _createdAt: string
+    _id: string
+    _rev: string
+    _type: 'comment'
+    _updated_at: string
+    tweet: {
+        _ref: string
+        _type: 'reference'
+    }
 }

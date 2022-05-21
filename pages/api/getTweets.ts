@@ -4,7 +4,7 @@ import { sanityClient } from '../../sanity'
 import { Tweet } from '../../typings'
 
 const feedQuery = groq`
-*[_type=="tweet"]{
+*[_type=="tweet"&& !blockTweet]{
     _id,
   ...
   }| order(_createdAt desc)
@@ -19,6 +19,5 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     const tweets: Tweet[] = await sanityClient.fetch(feedQuery)
-    console.log('tweets :>> ', tweets);
     res.status(200).json({ tweets })
 }

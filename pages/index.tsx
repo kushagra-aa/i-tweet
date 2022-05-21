@@ -5,6 +5,7 @@ import Widgets from '../components/Widgets'
 import SideBar from '../components/SideBar'
 import { getTweets } from '../utils/fetchTweets'
 import { Tweet } from '../typings'
+import { Toaster } from 'react-hot-toast'
 
 interface Props {
   tweets: Tweet[]
@@ -17,6 +18,8 @@ const Home = ({ tweets }: Props) => {
         <title>I Tweet</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <Toaster />
 
       <main className="mx-auto grid max-h-screen grid-cols-9 overflow-hidden lg:max-w-6xl">
         {/* SideBar */}
