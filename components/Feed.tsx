@@ -1,4 +1,5 @@
 import { RefreshIcon } from '@heroicons/react/outline'
+import { signIn, useSession } from 'next-auth/react'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { Tweet } from '../typings'
@@ -13,6 +14,7 @@ interface Props {
 const Feed = ({ tweets: tweetsProp }: Props) => {
   const [tweets, setTweets] = useState<Tweet[]>(tweetsProp)
   const [userReload, setUserReload] = useState(false)
+  const { data: session } = useSession()
   console.log('tweets', tweets)
 
   const handleRefresh = async () => {
@@ -28,7 +30,7 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
   }
 
   return (
-    <div className="col-span-7 overflow-scroll md:col-span-5">
+    <div className="col-span-7 max-h-screen overflow-scroll border-x scrollbar-hide md:col-span-5">
       <div className="flex items-center justify-between">
         <h1 className="p-5 pb-0 text-xl font-bold">Home</h1>
         <RefreshIcon
@@ -37,9 +39,21 @@ const Feed = ({ tweets: tweetsProp }: Props) => {
         />
       </div>
       {/* TweetBox */}
-      <div className="">
-        <TweetBox />
-      </div>
+      {session ? (
+        <div className="">
+          <TweetBox setTweets={setTweets} />
+        </div>
+      ) : (
+        <p className="text-bold my-5 text-center text-lg capitalize text-gray-600">
+          <span
+            className="cursor-pointer text-twitter underline"
+            onClick={() => signIn()}
+          >
+            sign in
+          </span>{' '}
+          to post
+        </p>
+      )}
       {/* tweet posts */}
       {tweets.map((tweet) => (
         <TweetPost key={tweet._id} tweet={tweet} />
